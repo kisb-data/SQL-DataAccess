@@ -152,5 +152,6 @@ class DataAccess:
         self.SQLiteWrite(command)
 
     # create database (not applicable in SQLite, databases are files)
-    def CreateDatabase(self, database_name):
-        self.logger.warning("CreateDatabase method is not applicable in SQLite. Databases are managed as files.")
+    def CreateDatabase(self, path):
+        os.remove(path)
+        self.logger.debug("Database deleted. ("+path+")")

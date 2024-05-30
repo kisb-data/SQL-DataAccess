@@ -185,7 +185,7 @@ class DataAccess:
         self.logger.debug(command)
         return(self.PostgresRead(command))
     
-    # ddelete
+    # delete
     def DeleteTable(self, table_name):
         command = "DROP TABLE IF EXISTS "+table_name+";"
         self.logger.debug(command)

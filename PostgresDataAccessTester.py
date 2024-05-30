@@ -23,20 +23,20 @@ print("=================")
 
 # create table test
 cols = [{"id": "SERIAL PRIMARY KEY"}, {"col1": "VARCHAR(100)"}, {"col2": "VARCHAR(100)"}]
-DataAccess.CreateTable("teszt", cols)
+DataAccess.CreateTable("test", cols)
 
-# get column names of teszt table
-table = [("teszt", )]
-print("Columns in the teszt table: ",DataAccess. GetColumnNames(table))
+# get column names of test table
+table = [("test", )]
+print("Columns in the test table: ",DataAccess. GetColumnNames(table))
 
-# insert data in teszt table
+# insert data in test table
 data = [{"col1": "abcd"}, {"col2": "efgh"}]
-print("Returned id: ", DataAccess.Insert("teszt", data, "id"))
+print("Returned id: ", DataAccess.Insert("test", data, "id"))
 
-# print teszt table data
-print("Table data: ", DataAccess.SelectAllFromTable("teszt"))
+# print test table data
+print("Table data: ", DataAccess.SelectAllFromTable("test"))
 
 # delete table
-DataAccess.DeleteTable("teszt")
+DataAccess.DeleteTable("test")
 
 

@@ -23,18 +23,18 @@ print("=================")
 
 # create table test
 cols = [{"id": "INTEGER PRIMARY KEY AUTOINCREMENT"}, {"col1": "VARCHAR(100)"}, {"col2": "VARCHAR(100)"}]
-data_access.CreateTable("teszt", cols)
+data_access.CreateTable("test", cols)
 
-# get column names of teszt table
-table = [("teszt", )]
-print("Columns in the teszt table: ", data_access.GetColumnNames(table))
+# get column names of test table
+table = [("test", )]
+print("Columns in the test table: ", data_access.GetColumnNames(table))
 
-# insert data in teszt table
+# insert data in test table
 data = [{"col1": "abcd"}, {"col2": "efgh"}]
-print("Returned id: ", data_access.Insert("teszt", data))
+print("Returned id: ", data_access.Insert("test", data))
 
-# print teszt table data
-print("Table data: ", data_access.SelectAllFromTable("teszt"))
+# print test table data
+print("Table data: ", data_access.SelectAllFromTable("test"))
 
 # delete table
-data_access.DeleteTable("teszt")
+data_access.DeleteTable("test")
