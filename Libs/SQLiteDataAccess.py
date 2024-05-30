@@ -82,7 +82,7 @@ class DataAccess:
         for table in tables:
             command = f"PRAGMA table_info({table[0]});"
             column_info = self.SQLiteRead(command)
-            columns = [col[1] for col in column_info]  # Extract only column names
+            columns = [col[1] for col in column_info] 
             ret.append(columns)
         return ret
 
@@ -151,7 +151,7 @@ class DataAccess:
         self.logger.debug(command)
         self.SQLiteWrite(command)
 
-    # create database (not applicable in SQLite, databases are files)
+    # create database 
     def CreateDatabase(self, path):
         os.remove(path)
         self.logger.debug("Database deleted. ("+path+")")
