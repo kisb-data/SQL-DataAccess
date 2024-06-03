@@ -22,7 +22,7 @@ print("")
 print("=================")
 
 # create table test
-cols = [{"id": "INTEGER PRIMARY KEY AUTOINCREMENT"}, {"col1": "VARCHAR(100)"}, {"col2": "VARCHAR(100)"}]
+cols = [{"id": "INTEGER PRIMARY KEY AUTOINCREMENT"}, {"col1": "TEXT"}, {"col2": "TEXT"}]
 data_access.CreateTable("test", cols)
 
 # get column names of test table

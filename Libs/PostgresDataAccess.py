@@ -135,7 +135,7 @@ class DataAccess:
     
         cols = cols.rstrip(', ')
 
-        command = f"CREATE TABLE {table_name} ({cols}"
+        command = f"CREATE TABLE IF NOT EXISTS {table_name} ({cols}"
 
         if additional_str!= "":
             command += ", " + additional_str 

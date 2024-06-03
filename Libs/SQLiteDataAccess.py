@@ -98,7 +98,7 @@ class DataAccess:
 
         cols = cols.rstrip(', ')
 
-        command = f"CREATE TABLE {table_name} ({cols}"
+        command = f"CREATE TABLE IF NOT EXISTS {table_name} ({cols}"
 
         if additional_str != "":
             command += ", " + additional_str
@@ -151,7 +151,7 @@ class DataAccess:
         self.logger.debug(command)
         self.SQLiteWrite(command)
 
-    # create database 
-    def CreateDatabase(self, path):
+    # delete database 
+    def DeleteDatabase(self, path):
         os.remove(path)
         self.logger.debug("Database deleted. ("+path+")")
