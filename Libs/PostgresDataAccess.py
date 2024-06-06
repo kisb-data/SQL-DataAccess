@@ -124,8 +124,6 @@ class DataAccess:
 
     # create table
     def CreateTable(self, table_name: str, columns: list, additional_str = ""):
-       
-        self.DeleteTable(table_name)
 
         cols = ""
         for column in columns:
@@ -147,30 +145,30 @@ class DataAccess:
 
 
     # insert data in table
-    def Insert(self, table = str, data = list(), return_value = ""):
-        
-        col = ""
-        val = ""
-        
-        for i in range(len(data)):
-            keys = list(data[i].keys())
-            values = list(data[i].values())
-            
-            col += f"{keys[0]}"
-            val += f"'{values[0]}'"
-            
-            if i < len(data) - 1:
-                col += ", "
-                val += ", "
-        
-        command = f"INSERT INTO {table} ({col}) VALUES ({val})"
+    def Insert(self, table=str, data=list(), return_value=""):
+        if not data:
+            raise ValueError("Data cannot be empty")
 
-        if return_value != "":
-            command += "RETURNING " + return_value 
+        # Extract column names from the first dictionary (assuming all dictionaries have the same keys)
+        columns = ", ".join(data[0].keys())
+        values_list = []
+
+        # Construct values part for each row
+        for row in data:
+            values = ", ".join(f"'{value}'" for value in row.values())
+            values_list.append(f"({values})")
+
+        # Join all rows for the VALUES part
+        values = ", ".join(values_list)
+
+        command = f"INSERT INTO {table} ({columns}) VALUES {values}"
+
+        if return_value:
+            command += " RETURNING " + return_value
         command += ";"
-      
+
         self.logger.debug(command)
-        
+
         return self.PostgresWrite(command, ret=True)
 
       

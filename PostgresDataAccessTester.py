@@ -30,7 +30,7 @@ table = [("test", )]
 print("Columns in the test table: ",DataAccess. GetColumnNames(table))
 
 # insert data in test table
-data = [{"col1": "abcd"}, {"col2": "efgh"}]
+data = [{"col1": "abcd", "col2": "efgh"}, {"col1": "ijkl", "col2": "mnop"}]
 print("Returned id: ", DataAccess.Insert("test", data, "id"))
 
 # print test table data

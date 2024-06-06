@@ -30,7 +30,7 @@ table = [("test", )]
 print("Columns in the test table: ", data_access.GetColumnNames(table))
 
 # insert data in test table
-data = [{"col1": "abcd"}, {"col2": "efgh"}]
+data = [{"col1": "abcd", "col2": "efgh"}, {"col1": "ijkl", "col2": "mnop"}]
 print("Returned id: ", data_access.Insert("test", data))
 
 # print test table data
@@ -38,3 +38,4 @@ print("Table data: ", data_access.SelectAllFromTable("test"))
 
 # delete table
 data_access.DeleteTable("test")
+

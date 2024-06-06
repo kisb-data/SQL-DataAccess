@@ -11,6 +11,10 @@ SQLiteDataAccess use logger extension to log errors, the SQLiteDataAccessExtLog 
 - Insert data into tables
 - Retrieve data from tables
 - Delete tables
+
+## Version
+ - 2.0: Changed the insert method. Instead of adding data as a list of dictionaries in separate columns, data is now added as a list of rows. This allows for inserting more rows in one step. Keep in mind that all insertions need to have the same column types.
+
 ## License
 
 **Copyright 2024, kisb-data **  
