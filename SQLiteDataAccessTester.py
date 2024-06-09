@@ -12,10 +12,10 @@ column_names = data_access.GetColumnNames(table_names)
 for table_index in range(len(table_names)):
     print("")
     print("=================")
-    print("Table: " + table_names[table_index][0])
+    print("Table: " + table_names[table_index])
     column_str = "Columns: "
     for column in column_names[table_index]:
-        column_str = column_str + column[1] + " |  "
+        column_str = column_str + column + " |  "
     print(column_str)
 
 print("")
@@ -26,7 +26,7 @@ cols = [{"id": "INTEGER PRIMARY KEY AUTOINCREMENT"}, {"col1": "TEXT"}, {"col2": 
 data_access.CreateTable("test", cols)
 
 # get column names of test table
-table = [("test", )]
+table = ["test", ]
 print("Columns in the test table: ", data_access.GetColumnNames(table))
 
 # insert data in test table

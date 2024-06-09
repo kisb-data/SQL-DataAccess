@@ -12,10 +12,10 @@ column_names = DataAccess. GetColumnNames(table_names)
 for table_index in range(len(table_names)):
     print("")
     print("=================")
-    print("Table: "+table_names[table_index][0])
+    print("Table: "+table_names[table_index])
     column_str = "Columns: "
     for column in column_names[table_index]:
-        column_str  = column_str + column[0] + " |  "
+        column_str  = column_str + str(column) + " |  "
     print(column_str)
 
 print("")
@@ -26,7 +26,7 @@ cols = [{"id": "SERIAL PRIMARY KEY"}, {"col1": "VARCHAR(100)"}, {"col2": "VARCHA
 DataAccess.CreateTable("test", cols)
 
 # get column names of test table
-table = [("test", )]
+table = ["test", ]
 print("Columns in the test table: ",DataAccess. GetColumnNames(table))
 
 # insert data in test table

@@ -108,16 +108,16 @@ class DataAccess:
     def GetTableNames(self):
         command ="SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE';"
         self.logger.debug(command)
-        return self.PostgresRead(command)
+        ret = self.PostgresRead(command)
+        tables= [item[0] for item in ret]
+        return tables
 
 
     # get column names of table
     def GetColumnNames(self, tables: list):
-
         ret = list()
- 
         for table in tables:
-            command = f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table[0]}';"
+            command = f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table}';"
             ret.append(self.PostgresRead(command))
         return ret
     

@@ -74,13 +74,15 @@ class DataAccess:
     def GetTableNames(self):
         command = "SELECT name FROM sqlite_master WHERE type='table';"
         self.logger.debug(command)
-        return self.SQLiteRead(command)
+        ret = self.SQLiteRead(command)
+        tables= [item[0] for item in ret]
+        return tables
 
     # get column names of table
     def GetColumnNames(self, tables: list):
         ret = list()
         for table in tables:
-            command = f"PRAGMA table_info({table[0]});"
+            command = f"PRAGMA table_info({table});"
             column_info = self.SQLiteRead(command)
             columns = [col[1] for col in column_info] 
             ret.append(columns)
