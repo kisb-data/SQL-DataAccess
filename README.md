@@ -1,4 +1,4 @@
-# SQL Access
+# SQL Data Access
 
 This project simplifies working with SQLite and Postgres databases by providing essential functions for creating, reading, and managing databases and tables. It allows for easy data insertion and retrieval. There are two versions of SQlite access,
 SQLiteDataAccess use logger extension to log errors, the SQLiteDataAccessExtLog allow you to ask if error occures and so, it is possible to store it another ways.
